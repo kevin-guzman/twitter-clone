@@ -13,11 +13,12 @@ import (
 
 func Manejadores() {
 	router := mux.NewRouter()
-	router.HandleFunc("/registro", middlew.ChaqueoDB(routers.Registro) ).Methods("POST")
+	router.HandleFunc("/registro", middlew.ChequeoDB(routers.Registro)).Methods("POST")
+	router.HandleFunc("/login", middlew.ChequeoDB(routers.Login)).Methods("POST")
 	PORT := os.Getenv("POTR")
 	if PORT == "" {
 		PORT = "8080"
 	}
-	handler:=cors.AllowAll().Handler(router)
+	handler := cors.AllowAll().Handler(router)
 	log.Fatal(http.ListenAndServe(":"+PORT, handler))
 }
