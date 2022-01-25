@@ -10,7 +10,8 @@ import (
 
 var MongoCN = conectarDB()
 
-const connectionString = "mongodb+srv://kevinsizz:passUltraSecretXD1234.$@realmcluster.wflku.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const connectionString = 
+	"mongodb+srv://kevinsizz:passUltraSecretXD1234.$@realmcluster.wflku.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 var clientOptions = options.Client().ApplyURI(connectionString)
 
