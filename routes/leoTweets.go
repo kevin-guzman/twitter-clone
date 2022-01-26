@@ -12,12 +12,12 @@ func LeoTweets(w http.ResponseWriter, r *http.Request)  {
 	ID:=r.URL.Query().Get("id")
 	pagina, err:=strconv.Atoi(r.URL.Query().Get("pagina"))
 	if err != nil {
-		http.Error(w, "EL parámetro pagina debe ser matyor a cero"+err.Error(), http.StatusBadRequest)
+		http.Error(w, "EL parámetro pagina debe ser matyor a cero "+err.Error(), http.StatusBadRequest)
 		return
 	}
 	limite, err:=strconv.Atoi(r.URL.Query().Get("limite"))
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Println("No viene el limite",err.Error())
 	}
 	if len(ID) <1{
 		http.Error(w, "EL parámetro id es obligatorio", http.StatusBadRequest)
