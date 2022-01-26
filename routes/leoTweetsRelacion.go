@@ -15,12 +15,12 @@ func LeoTweetsSeguidores(w http.ResponseWriter, r *http.Request)  {
 	}
 	limit, err := strconv.Atoi(r.URL.Query().Get("limit"))
 	if err != nil {
-		limit = 0
+		limit = 20
 	}
 
 	respuesta,err:=bd.LeoTweetsSeguidores(IDUsuario, page, limit)
 	if err != nil {
-		http.Error(w, "Ocurrió un error al crear el usuario "+err.Error(), http.StatusBadRequest)
+		http.Error(w, "Ocurrió un error al listar los tweets "+err.Error(), http.StatusBadRequest)
 		return
 	}
 

@@ -22,10 +22,9 @@ func LeoTweetsSeguidores(ID string, pagina, limit int) ([]models.DevuelvoTweetsS
 		"$lookup": bson.M{
 			"from":         "tweet",
 			"localField":   "usuariorelacionid",
-			"foreingField": "userid",
+			"foreignField": "userid",
 			"as":           "tweet",
-		},
-	})
+		}})
 	condiciones = append(condiciones, bson.M{"$unwind": "$tweet"})
 	condiciones = append(condiciones, bson.M{"$sort": bson.M{"tweet.fecha": -1}})
 	condiciones = append(condiciones, bson.M{"$skip": skip})
